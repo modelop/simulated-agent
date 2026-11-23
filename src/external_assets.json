@@ -1,6 +1,8 @@
 [
   {
     "assetType": "CONTAINER",
+    "assetRole": "IMPLEMENTATION_IMAGE",
+    "name": "simulated-agent:latest",
     "repositoryInfo": {
       "repositoryType": "OCI_REPOSITORY",
       "registry": "",
