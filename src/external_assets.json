@@ -1,9 +1,11 @@
-{
-  "assetType": "CONTAINER",
-  "repositoryInfo": {
-    "repositoryType": "OCI_REPOSITORY",
-    "registry": "",
-    "repository": "simulated-agent",
-    "tag": "latest"
+[
+  {
+    "assetType": "CONTAINER",
+    "repositoryInfo": {
+      "repositoryType": "OCI_REPOSITORY",
+      "registry": "",
+      "repository": "simulated-agent",
+      "tag": "latest"
+    }
   }
-}
+]
