@@ -1,2 +1,2 @@
 # simulated-agent
-A simple example simulated agent for demo purposes
+Executes a static list of commands, mcp tools, and access to websites that an agent might typically execute
