@@ -7,6 +7,10 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
+# Create non-root sandbox user and group
+RUN groupadd --gid 1000 sandbox && \
+    useradd --uid 1000 --gid sandbox --shell /bin/bash --create-home sandbox
+
 # Install Node.js and npm from the official Debian repository, then clean up apt cache
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nodejs npm && \
@@ -24,6 +28,11 @@ RUN npm install
 COPY hello.js main.py start.sh ./
 
 # Ensure the start script is executable and has Unix (LF) line endings
-RUN sed -i 's/\r$//' start.sh && chmod +x start.sh
+# Ensure start.sh is executable, has Unix (LF) line endings, and sandbox owns /app
+RUN sed -i 's/\r$//' start.sh && \
+    chmod +x start.sh && \
+    chown -R sandbox:sandbox /app
+
+USER sandbox
 
 CMD ["./start.sh"]
